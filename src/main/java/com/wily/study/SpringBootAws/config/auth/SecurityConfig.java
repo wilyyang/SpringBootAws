@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
                     .antMatchers("/", "/css/**", "/image/**", "/js/**", "/h2-console/**").permitAll()
-                    .antMatchers("/api/v1/**").hasRole(Role.USER.name())
+                    .antMatchers("/api/v1/**").hasRole(Role.GUEST.name())
                     .anyRequest().authenticated()
                 .and().logout().logoutSuccessUrl("/")
                 .and().oauth2Login().userInfoEndpoint().userService(customOAuth2UserService);
